@@ -636,6 +636,7 @@
 		66DCB37215F940CC0076F6F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SDL\"",
@@ -644,6 +645,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Gearboy/Gearboy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -651,6 +653,7 @@
 		66DCB37315F940CC0076F6F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/SDL\"",
@@ -659,6 +662,7 @@
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "Gearboy/Gearboy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
