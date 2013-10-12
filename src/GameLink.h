@@ -29,6 +29,7 @@ class GameLink
 {
 public:
     GameLink(Processor* pProcessor);
+    void Init();
     void Send(u8 value);
     bool IsConnected();
     void SetConnected(bool value);

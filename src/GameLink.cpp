@@ -26,6 +26,10 @@ GameLink::GameLink(Processor* pProcessor)
     m_Connected = false;
 }
 
+void GameLink::Init()
+{
+}
+
 void GameLink::Send(u8 value)
 {
     // Temporary stub
