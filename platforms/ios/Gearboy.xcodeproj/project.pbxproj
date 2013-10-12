@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51A2E1A81809CBBA00F8A9E3 /* GameLink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51A2E1A61809CBBA00F8A9E3 /* GameLink.cpp */; };
 		660F501B15F9615800617A2D /* gb~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 660F501915F9615800617A2D /* gb~ipad.jpg */; };
 		660F501C15F9615800617A2D /* gb@2x~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 660F501A15F9615800617A2D /* gb@2x~ipad.jpg */; };
 		662E1E1F15F9499600C7FF66 /* Audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 662E1DF315F9499600C7FF66 /* Audio.cpp */; };
@@ -72,6 +73,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51A2E1A61809CBBA00F8A9E3 /* GameLink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameLink.cpp; path = ../../src/GameLink.cpp; sourceTree = "<group>"; };
+		51A2E1A71809CBBA00F8A9E3 /* GameLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameLink.h; path = ../../src/GameLink.h; sourceTree = "<group>"; };
 		660F501915F9615800617A2D /* gb~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "gb~ipad.jpg"; path = "img/gb~ipad.jpg"; sourceTree = "<group>"; };
 		660F501A15F9615800617A2D /* gb@2x~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "gb@2x~ipad.jpg"; path = "img/gb@2x~ipad.jpg"; sourceTree = "<group>"; };
 		662E1DF315F9499600C7FF66 /* Audio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Audio.cpp; path = ../../src/Audio.cpp; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 				662E1DF915F9499600C7FF66 /* CommonMemoryRule.h */,
 				662E1DFA15F9499600C7FF66 /* definitions.h */,
 				662E1DFC15F9499600C7FF66 /* EightBitRegister.h */,
+				51A2E1A61809CBBA00F8A9E3 /* GameLink.cpp */,
+				51A2E1A71809CBBA00F8A9E3 /* GameLink.h */,
 				662E1DFD15F9499600C7FF66 /* gearboy.h */,
 				662E1DFE15F9499600C7FF66 /* GearboyCore.cpp */,
 				662E1DFF15F9499600C7FF66 /* GearboyCore.h */,
@@ -480,6 +485,7 @@
 				662E1E2515F9499600C7FF66 /* IORegistersMemoryRule.cpp in Sources */,
 				662E1E2715F9499600C7FF66 /* MBC1MemoryRule.cpp in Sources */,
 				662E1E2815F9499600C7FF66 /* MBC2MemoryRule.cpp in Sources */,
+				51A2E1A81809CBBA00F8A9E3 /* GameLink.cpp in Sources */,
 				662E1E2915F9499600C7FF66 /* MBC3MemoryRule.cpp in Sources */,
 				662E1E2A15F9499600C7FF66 /* MBC5MemoryRule.cpp in Sources */,
 				662E1E2B15F9499600C7FF66 /* Memory.cpp in Sources */,
