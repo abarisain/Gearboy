@@ -30,6 +30,7 @@ GameLink::GameLink(Memory* pMemory, Processor* pProcessor)
 
 void GameLink::Init()
 {
+    InitPointer(m_pSendImpl);
 }
 
 void GameLink::Receive(u8 value)
@@ -41,7 +42,10 @@ void GameLink::Receive(u8 value)
 
 void GameLink::Send(u8 value)
 {
-    // Temporary stub
+    if(IsValidPointer(m_pSendImpl))
+    {
+        m_pSendImpl(value);
+    }
 }
 
 bool GameLink::IsConnected()

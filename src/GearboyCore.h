@@ -49,6 +49,7 @@ public:
     bool LoadROM(const char* szFilePath, bool forceDMG);
     Memory* GetMemory();
     Cartridge* GetCartridge();
+    GameLink* GetGameLink();
     void KeyPressed(Gameboy_Keys key);
     void KeyReleased(Gameboy_Keys key);
     void Pause(bool paused);

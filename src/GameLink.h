@@ -34,6 +34,7 @@ public:
     void Send(u8 value);
     bool IsConnected();
     void SetConnected(bool value);
+    void SetSendImplementation(void (*implementation)(u8));
 
 private:
     void Update();
@@ -42,6 +43,7 @@ private:
     bool m_Connected;
     Memory* m_pMemory;
     Processor* m_pProcessor;
+    void (*m_pSendImpl)(u8);
 };
 
 #endif	/* GAMELINK_H */
