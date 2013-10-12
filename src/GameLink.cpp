@@ -32,6 +32,13 @@ void GameLink::Init()
 {
 }
 
+void GameLink::Receive(u8 value)
+{
+    m_pMemory->Write(0xFF02, SetBit(m_pMemory->Retrieve(0xFF02), 0x7F));
+    m_pMemory->Load(0xFF01, value);
+    m_pProcessor->RequestInterrupt(Processor::Serial_Interrupt);
+}
+
 void GameLink::Send(u8 value)
 {
     // Temporary stub

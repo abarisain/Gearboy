@@ -30,6 +30,7 @@ class GameLink
 public:
     GameLink(Memory* pMemory, Processor* pProcessor);
     void Init();
+    void Receive(u8 value);
     void Send(u8 value);
     bool IsConnected();
     void SetConnected(bool value);
