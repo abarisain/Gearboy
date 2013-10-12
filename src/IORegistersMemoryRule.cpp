@@ -52,6 +52,16 @@ u8 IORegistersMemoryRule::PerformRead(u16 address)
             // P1
             return m_pInput->Read();
         }
+        case 0xFF01:
+        {
+            // SB
+            return m_pMemory->Retrieve(0xFF01);
+        }
+        case 0xFF02:
+        {
+            // SC
+            return (m_pMemory->Retrieve(0xFF02) & 0x83) | 0x7C;
+        }
         case 0xFF03:
         {
             // UNDOCUMENTED
@@ -214,6 +224,11 @@ void IORegistersMemoryRule::PerformWrite(u16 address, u8 value)
         {
             // P1
             m_pInput->Write(value);
+            break;
+        }
+        case 0xFF01:
+        {
+            m_pMemory->Load(address, value);
             break;
         }
         case 0xFF02:
