@@ -106,7 +106,7 @@ void GearboyCore::Init()
     m_pAudio = new Audio();
     m_pInput = new Input(m_pMemory, m_pProcessor);
     m_pCartridge = new Cartridge();
-    m_pGameLink = new GameLink(m_pProcessor);
+    m_pGameLink = new GameLink(m_pMemory, m_pProcessor);
 
     m_pMemory->Init();
     m_pProcessor->Init();

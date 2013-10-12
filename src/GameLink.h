@@ -28,7 +28,7 @@ class Processor;
 class GameLink
 {
 public:
-    GameLink(Processor* pProcessor);
+    GameLink(Memory* pMemory, Processor* pProcessor);
     void Init();
     void Send(u8 value);
     bool IsConnected();
@@ -39,6 +39,7 @@ private:
 
 private:
     bool m_Connected;
+    Memory* m_pMemory;
     Processor* m_pProcessor;
 };
 

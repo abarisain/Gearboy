@@ -18,10 +18,12 @@
  */
 
 #include "GameLink.h"
+#include "Memory.h"
 #include "Processor.h"
 
-GameLink::GameLink(Processor* pProcessor)
+GameLink::GameLink(Memory* pMemory, Processor* pProcessor)
 {
+    m_pMemory = pMemory;
     m_pProcessor = pProcessor;
     m_Connected = false;
 }
