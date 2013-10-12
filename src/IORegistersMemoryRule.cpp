@@ -219,7 +219,7 @@ void IORegistersMemoryRule::PerformWrite(u16 address, u8 value)
         case 0xFF02:
         {
             // Serial
-            std::cout << address << " " << 0xFF02;
+            std::cout << "Serial : " << address << " " << 0xFF02 << "\n";
             m_pMemory->Load(address, value);
             if(IsSetBit(value, 0x81))
             {
