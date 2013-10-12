@@ -57,3 +57,8 @@ void GameLink::SetConnected(bool value)
 {
     m_Connected = value;
 }
+
+void GameLink::SetSendImplementation(void (*implementation)(u8))
+{
+    m_pSendImpl = implementation;
+}

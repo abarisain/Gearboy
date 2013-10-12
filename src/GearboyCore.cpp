@@ -209,6 +209,11 @@ Cartridge* GearboyCore::GetCartridge()
     return m_pCartridge;
 }
 
+GameLink* GearboyCore::GetGameLink()
+{
+    return m_pGameLink;
+}
+
 void GearboyCore::KeyPressed(Gameboy_Keys key)
 {
     m_pInput->KeyPressed(key);
