@@ -219,10 +219,11 @@ void IORegistersMemoryRule::PerformWrite(u16 address, u8 value)
         case 0xFF02:
         {
             // Serial
-            std::cout << "Serial : " << address << " " << 0xFF02 << "\n";
+            std::cout << "Serial : " << address << " " << value << "\n";
             m_pMemory->Load(address, value);
             if(IsSetBit(value, 0x81))
             {
+                std::cout << "Sending serial data\n";
                 m_pGameLink->Send(m_pMemory->Retrieve(0xFF01));
             }
             break;
@@ -301,7 +302,8 @@ void IORegistersMemoryRule::PerformWrite(u16 address, u8 value)
         case 0xFF3F:
         {
             // SOUND REGISTERS
-            m_pAudio->WriteAudioRegister(address, value);
+            // TODO : RENEABLE THIS
+            //m_pAudio->WriteAudioRegister(address, value);
             break;
         }
         case 0xFF40:
