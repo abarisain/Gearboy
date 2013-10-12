@@ -33,6 +33,7 @@
 #include "MBC3MemoryRule.h"
 #include "MBC5MemoryRule.h"
 #include "MultiMBC1MemoryRule.h"
+#include "GameLink.h"
 
 GearboyCore::GearboyCore()
 {
@@ -50,6 +51,7 @@ GearboyCore::GearboyCore()
     InitPointer(m_pMBC2MemoryRule);
     InitPointer(m_pMBC3MemoryRule);
     InitPointer(m_pMBC5MemoryRule);
+    InitPointer(m_pGameLink);
     m_bCGB = false;
     m_bPaused = true;
     m_bForceDMG = false;
@@ -79,6 +81,7 @@ GearboyCore::~GearboyCore()
     }
 #endif
 
+    SafeDelete(m_pGameLink);
     SafeDelete(m_pMBC5MemoryRule);
     SafeDelete(m_pMBC3MemoryRule);
     SafeDelete(m_pMBC2MemoryRule);
@@ -103,6 +106,7 @@ void GearboyCore::Init()
     m_pAudio = new Audio();
     m_pInput = new Input(m_pMemory, m_pProcessor);
     m_pCartridge = new Cartridge();
+    m_pGameLink = new GameLink(m_pProcessor);
 
     m_pMemory->Init();
     m_pProcessor->Init();
@@ -110,6 +114,7 @@ void GearboyCore::Init()
     m_pAudio->Init();
     m_pInput->Init();
     m_pCartridge->Init();
+    m_pGameLink->Init();
 
     InitMemoryRules();
     InitDMGPalette();
@@ -424,7 +429,7 @@ void GearboyCore::InitDMGPalette()
 void GearboyCore::InitMemoryRules()
 {
     m_pIORegistersMemoryRule = new IORegistersMemoryRule(m_pProcessor, m_pMemory,
-            m_pVideo, m_pInput, m_pCartridge, m_pAudio);
+            m_pVideo, m_pInput, m_pCartridge, m_pAudio, m_pGameLink);
 
     m_pCommonMemoryRule = new CommonMemoryRule(m_pProcessor, m_pMemory,
             m_pVideo, m_pInput, m_pCartridge, m_pAudio);

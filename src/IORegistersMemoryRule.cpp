@@ -23,10 +23,11 @@
 #include "Processor.h"
 #include "Input.h"
 #include "Audio.h"
+#include "GameLink.h"
 
 IORegistersMemoryRule::IORegistersMemoryRule(Processor* pProcessor,
         Memory* pMemory, Video* pVideo, Input* pInput,
-        Cartridge* pCartridge, Audio* pAudio)
+        Cartridge* pCartridge, Audio* pAudio, GameLink* pGameLink)
 {
     m_pProcessor = pProcessor;
     m_pMemory = pMemory;
@@ -34,6 +35,7 @@ IORegistersMemoryRule::IORegistersMemoryRule(Processor* pProcessor,
     m_pInput = pInput;
     m_pCartridge = pCartridge;
     m_pAudio = pAudio;
+    m_pGameLink = pGameLink;
     m_bCGB = false;
 }
 
@@ -212,6 +214,17 @@ void IORegistersMemoryRule::PerformWrite(u16 address, u8 value)
         {
             // P1
             m_pInput->Write(value);
+            break;
+        }
+        case 0xFF02:
+        {
+            // Serial
+            std::cout << address << " " << 0xFF02;
+            m_pMemory->Load(address, value);
+            if(IsSetBit(value, 0x81))
+            {
+                m_pGameLink->Send(m_pMemory->Retrieve(0xFF01));
+            }
             break;
         }
         case 0xFF04:

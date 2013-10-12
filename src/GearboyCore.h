@@ -36,6 +36,7 @@ class MBC2MemoryRule;
 class MBC3MemoryRule;
 class MBC5MemoryRule;
 class MultiMBC1MemoryRule;
+class GameLink;
 class MemoryRule;
 
 class GearboyCore
@@ -83,6 +84,7 @@ private:
     MBC3MemoryRule* m_pMBC3MemoryRule;
     MBC5MemoryRule* m_pMBC5MemoryRule;
     MultiMBC1MemoryRule* m_pMultiMBC1MemoryRule;
+    GameLink* m_pGameLink;
     bool m_bCGB;
     bool m_bPaused;
     GB_Color m_DMGPalette[4];

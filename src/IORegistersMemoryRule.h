@@ -28,12 +28,13 @@ class Processor;
 class Input;
 class Cartridge;
 class Audio;
+class GameLink;
 
 class IORegistersMemoryRule
 {
 public:
     IORegistersMemoryRule(Processor* pProcessor, Memory* pMemory,
-            Video* pVideo, Input* pInput, Cartridge* pCartridge, Audio* pAudio);
+            Video* pVideo, Input* pInput, Cartridge* pCartridge, Audio* pAudio, GameLink* pGameLink);
     ~IORegistersMemoryRule();
     u8 PerformRead(u16 address);
     void PerformWrite(u16 address, u8 value);
@@ -46,6 +47,7 @@ private:
     Input* m_pInput;
     Cartridge* m_pCartridge;
     Audio* m_pAudio;
+    GameLink* m_pGameLink;
     bool m_bCGB;
 };
 
