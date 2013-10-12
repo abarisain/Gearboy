@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		51A2E1A81809CBBA00F8A9E3 /* GameLink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 51A2E1A61809CBBA00F8A9E3 /* GameLink.cpp */; };
+		51A2E1EE1809E0FE00F8A9E3 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A2E1ED1809E0FE00F8A9E3 /* GameKit.framework */; };
 		660F501B15F9615800617A2D /* gb~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 660F501915F9615800617A2D /* gb~ipad.jpg */; };
 		660F501C15F9615800617A2D /* gb@2x~ipad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 660F501A15F9615800617A2D /* gb@2x~ipad.jpg */; };
 		662E1E1F15F9499600C7FF66 /* Audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 662E1DF315F9499600C7FF66 /* Audio.cpp */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		51A2E1A61809CBBA00F8A9E3 /* GameLink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameLink.cpp; path = ../../src/GameLink.cpp; sourceTree = "<group>"; };
 		51A2E1A71809CBBA00F8A9E3 /* GameLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameLink.h; path = ../../src/GameLink.h; sourceTree = "<group>"; };
+		51A2E1ED1809E0FE00F8A9E3 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		660F501915F9615800617A2D /* gb~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "gb~ipad.jpg"; path = "img/gb~ipad.jpg"; sourceTree = "<group>"; };
 		660F501A15F9615800617A2D /* gb@2x~ipad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "gb@2x~ipad.jpg"; path = "img/gb@2x~ipad.jpg"; sourceTree = "<group>"; };
 		662E1DF315F9499600C7FF66 /* Audio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Audio.cpp; path = ../../src/Audio.cpp; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51A2E1EE1809E0FE00F8A9E3 /* GameKit.framework in Frameworks */,
 				66D4BA7F15FABBC500D4937F /* QuartzCore.framework in Frameworks */,
 				66D4BA7D15FABB9100D4937F /* OpenGLES.framework in Frameworks */,
 				66D4BA7B15FABB8600D4937F /* AudioToolbox.framework in Frameworks */,
@@ -339,6 +342,7 @@
 		66DCB34A15F940CC0076F6F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				51A2E1ED1809E0FE00F8A9E3 /* GameKit.framework */,
 				66D4BA7A15FABB8600D4937F /* AudioToolbox.framework */,
 				66D4BA7815FABB7B00D4937F /* CoreAudio.framework */,
 				66DCB34F15F940CC0076F6F6 /* CoreGraphics.framework */,

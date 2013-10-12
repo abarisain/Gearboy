@@ -46,6 +46,13 @@
     {
         [self.theGLViewController loadRomWithName:self.detailItem];
     }
+    
+    UIBarButtonItem *linkButton = [[UIBarButtonItem alloc] initWithTitle:@"Link"
+                                                            style:UIBarButtonItemStyleBordered
+                                                           target:self
+                                                           action:@selector(initGameLink)];
+    
+    [self.navigationItem setRightBarButtonItem:linkButton animated:YES];
 }
 
 - (void)viewDidLoad
@@ -157,4 +164,85 @@
     }
 }
 
+#pragma GameLink
+-(void) initGameLink
+{
+    picker = [[GKPeerPickerController alloc] init];
+    picker.delegate = self;
+    picker.connectionTypesMask = GKPeerPickerConnectionTypeNearby;
+    
+    [picker show];
+}
+
+- (void)peerPickerController:(GKPeerPickerController *)picker
+              didConnectPeer:(NSString *)peerID
+                   toSession:(GKSession *) session {
+    NSLog(@"blabla");
+    [[_theGLViewController theEmulator] getGameLink]->SetSendImplementation(GameLinkCallback::Send);
+    self.currentSession = session;
+    session.delegate = self;
+    [session setDataReceiveHandler:self withContext:nil];
+    picker.delegate = nil;
+    
+    [picker dismiss];
+}
+
+- (void)peerPickerControllerDidCancel:(GKPeerPickerController *)picker
+{
+    picker.delegate = nil;
+}
+
+- (void)session:(GKSession *)session
+           peer:(NSString *)peerID
+ didChangeState:(GKPeerConnectionState)state {
+    NSData* data;
+    NSString *str = @"caca";
+    switch (state)
+    {
+        case GKPeerStateConnected:
+            NSLog(@"connected");
+            data = [str dataUsingEncoding: NSASCIIStringEncoding];
+            [[_theGLViewController theEmulator] getGameLink]->SetSendImplementation(GameLinkCallback::Send);
+            break;
+        case GKPeerStateDisconnected:
+            NSLog(@"disconnected");
+            _currentSession = nil;
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) receiveData:(NSData *)data
+            fromPeer:(NSString *)peer
+           inSession:(GKSession *)session
+             context:(void *)context {
+    NSLog(@"Receiving link data");
+    const u8 *value = (const u8*) [data bytes];
+    [[_theGLViewController theEmulator] getGameLink]->Receive(*value);
+}
+
+-(void) sendData:(u8) value
+{
+    NSData* data = [NSData dataWithBytes:&value length:sizeof(u8)];
+    if (_currentSession)
+        [self.currentSession sendDataToAllPeers:data
+                                   withDataMode:GKSendDataReliable
+                                          error:nil];
+}
+
+
 @end
+
+id GameLinkCallback::m_pInstance;
+
+void GameLinkCallback::SetInstance(id instance)
+{
+    GameLinkCallback::m_pInstance = instance;
+}
+
+void GameLinkCallback::Send(u8 value)
+{
+    NSLog(@"Sending link data");
+    [m_pInstance sendData:value];
+}

@@ -19,10 +19,16 @@
 
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
+#import <GameKit/GameKit.h>
 #import "GLViewController.h"
+#import "GameLink.h"
 
-@interface DetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface DetailViewController : UIViewController <UISplitViewControllerDelegate, GKPeerPickerControllerDelegate, GKSessionDelegate>
+{
+    GKPeerPickerController *picker;
+}
 
+@property (strong, nonatomic) GKSession *currentSession;
 @property (strong, nonatomic) GLViewController* theGLViewController;
 @property (strong, nonatomic) id detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
@@ -30,3 +36,13 @@
 - (void)_handleTouch : (UITouch *) touch;
 
 @end
+
+class GameLinkCallback
+{
+public:
+    static void SetInstance(id instance);
+    static void Send(u8 value);
+    static id m_pInstance;
+private:
+    
+};
